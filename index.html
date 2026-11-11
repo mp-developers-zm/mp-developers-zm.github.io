@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M&amp;P Developers Service Catalog</title>
+<meta name="description" content="Websites, apps, mobile money integration, security testing and creative media from M&amp;P Developers in Lusaka, Zambia. WhatsApp 0975 943 331.">
+<meta property="og:title" content="M&amp;P Developers Service Catalog">
+<meta property="og:description" content="Web, Security, Software. Browse all 29 services and send us your list on WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07193D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Mono:wght@500;700&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one navy "prompt" hero that asks what you need, then quiet shelves of tilted 3D service cards. */
+:root{
+  --bg:#F2F5FC; --surface:#FFFFFF; --ink:#07193D; --muted:#4A5B80; --line:#D3DDF1;
+  --blue:#1C54F2; --blue-hi:#3B7BFF; --blue-lo:#1238C4; --sky:#9CC3FF;
+  --hero:#07193D; --hero-ink:#FFFFFF; --hero-muted:#B4CBF7;
+  --stage-a:#E8EFFF; --stage-b:#C4D6FF; --paper:#FFFFFF; --art-navy:#07193D;
+  --alert:#EC5338; --ok:#12A66A;
+  --display:"Red Hat Display",system-ui,"Segoe UI",sans-serif;
+  --body:"Red Hat Text",system-ui,"Segoe UI",sans-serif;
+  --mono:"Red Hat Mono",ui-monospace,Consolas,monospace;
+  --shadow:0 1px 2px rgba(7,25,61,.06),0 10px 28px rgba(7,25,61,.08);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#040C20; --surface:#0A1836; --ink:#EEF3FF; --muted:#9FB2DA; --line:#1C2F62;
+    --blue:#3B7BFF; --blue-hi:#6FA2FF; --blue-lo:#1C54F2; --sky:#9CC3FF;
+    --hero:#0A1D4A; --stage-a:#1B3D93; --stage-b:#0F2768; --paper:#F5F8FF; --art-navy:#040C20;
+    --alert:#FF6B57; --ok:#2BC48A;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#040C20; --surface:#0A1836; --ink:#EEF3FF; --muted:#9FB2DA; --line:#1C2F62;
+  --blue:#3B7BFF; --blue-hi:#6FA2FF; --blue-lo:#1C54F2; --sky:#9CC3FF;
+  --hero:#0A1D4A; --stage-a:#1B3D93; --stage-b:#0F2768; --paper:#F5F8FF; --art-navy:#040C20;
+  --alert:#FF6B57; --ok:#2BC48A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);padding-bottom:96px}
+h1,h2,h3,h4,p,ul{margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-.02em;line-height:1.08}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue-hi);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-weight:500;letter-spacing:.02em}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:0 0 28px 28px;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 82% 40%,rgba(59,123,255,.38),transparent 70%);pointer-events:none}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;position:relative;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:900 22px var(--display);letter-spacing:-.02em}
+.brand svg{width:34px;height:42px}
+.brand span{color:var(--sky);font-weight:700}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav a{color:var(--hero-muted);text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:8px}
+.top nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center;padding:28px 0 52px;position:relative}
+.eyebrow{font:500 13px var(--mono);color:var(--hero-muted);letter-spacing:.14em}
+.hero h1{font-size:clamp(34px,5.2vw,60px);font-weight:900;margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--sky)}
+.lede{color:var(--hero-muted);max-width:56ch;font-size:17px}
+.prompt{margin-top:26px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:6px 6px 6px 18px;box-shadow:0 18px 40px rgba(0,0,0,.3);max-width:620px}
+.prompt .ps{font:700 20px var(--mono);color:#1C54F2;white-space:nowrap}
+.prompt input{flex:1;min-width:0;border:0;background:transparent;color:#07193D;font:500 17px var(--mono);padding:14px 0;outline:none}
+.prompt input::placeholder{color:#7C8BAD}
+.prompt:focus-within{outline:3px solid var(--sky);outline-offset:2px}
+.prompt button{border:0;background:#1C54F2;color:#fff;font-weight:700;border-radius:12px;padding:12px 18px}
+.needs{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.needs .lbl{font-size:14px;color:var(--hero-muted);margin-right:4px}
+.need{border:1px solid rgba(180,203,247,.35);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+.need:hover{background:rgba(255,255,255,.14)}
+.need[aria-pressed="true"]{background:#fff;color:#07193D;border-color:#fff}
+
+/* hero 3D shield */
+.orb{height:340px;perspective:900px;display:grid;place-items:center}
+.orb-s{position:relative;width:210px;height:260px;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-24deg);animation:sway 8s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotateX(8deg) rotateY(-28deg)}to{transform:rotateX(6deg) rotateY(26deg)}}
+.orb-s svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tag{position:absolute;font:700 12px var(--mono);letter-spacing:.12em;padding:8px 12px;border-radius:10px;background:#fff;color:#07193D;box-shadow:0 10px 24px rgba(0,0,0,.35);white-space:nowrap}
+.tag b{color:#1C54F2}
+
+/* toolbar */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:28px 0 8px}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500}
+.cat:hover{border-color:var(--blue)}
+.cat[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cat .mono{opacity:.6;margin-right:6px;font-size:12px}
+.count{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.status{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0 4px;font-size:15px}
+.status button{border:0;background:none;color:var(--blue);font-weight:700;padding:4px}
+
+/* shelves */
+.shelf{margin-top:40px;scroll-margin-top:16px}
+.shelf-h{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;border-top:2px solid var(--ink);padding-top:14px;margin-bottom:20px}
+.shelf-h .mono{font-size:13px;color:var(--blue);font-weight:700}
+.shelf-h h2{font-size:clamp(24px,3vw,32px);font-weight:900}
+.shelf-h p{grid-column:2;color:var(--muted);max-width:65ch}
+.permit{grid-column:2;display:inline-flex;gap:8px;align-items:center;font-size:14px;font-weight:500;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:8px;padding:8px 12px;width:fit-content}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.open{border:0;padding:0;background:none;display:block;width:100%}
+.stage{position:relative;aspect-ratio:4/3;background:linear-gradient(160deg,var(--stage-a),var(--stage-b));perspective:700px;overflow:hidden}
+.stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:repeating-linear-gradient(90deg,transparent 0 26px,rgba(255,255,255,.22) 26px 27px),repeating-linear-gradient(0deg,transparent 0 13px,rgba(255,255,255,.22) 13px 14px);transform:perspective(300px) rotateX(58deg);transform-origin:bottom;opacity:.8}
+.scene{position:absolute;inset:9% 12%;z-index:1;transform-style:preserve-3d;transform:rotateX(calc(14deg + var(--rx,0deg))) rotateY(calc(-22deg + var(--ry,0deg)));transition:transform .25s ease-out}
+.ly{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:translateZ(var(--z));filter:drop-shadow(0 7px 8px rgba(4,12,32,.22))}
+.ly .b{fill:var(--blue)}.ly .d{fill:var(--blue-lo)}.ly .s{fill:var(--sky)}.ly .w{fill:var(--paper)}.ly .n{fill:var(--art-navy)}
+.ly .a{fill:var(--alert)}.ly .k{fill:var(--ok)}.ly .g{fill:var(--paper);opacity:.5}
+.ly .l,.ly .lb,.ly .ln,.ly .la{fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.ly .l{stroke:var(--paper)}.ly .lb{stroke:var(--blue)}.ly .ln{stroke:var(--art-navy)}.ly .la{stroke:var(--alert)}
+.ly .thin{stroke-width:3}.ly .dash{stroke-dasharray:1 11}
+.ly text{font:700 12px var(--mono);fill:#fff;text-anchor:middle}
+.cb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.sid{font:700 12px var(--mono);color:var(--blue);letter-spacing:.06em}
+.cb h3{font-size:20px;font-weight:700}
+.cb p{color:var(--muted);font-size:15px;flex:1}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--blue)}
+.btn.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.pri:hover{background:var(--blue-lo)}
+.btn[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:18px;padding:32px;text-align:center;color:var(--muted)}
+
+/* work + contact */
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.wk{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow)}
+.wk .stage{border-radius:12px}
+.wk h3{font-size:19px;margin-bottom:4px}
+.wk p{color:var(--muted);font-size:15px}
+.contact{margin-top:48px;background:var(--hero);color:#fff;border-radius:24px;padding:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.contact h2{font-size:clamp(26px,3.4vw,38px);font-weight:900}
+.contact p{color:var(--hero-muted);margin-top:8px;max-width:48ch}
+.nums{display:flex;flex-direction:column;gap:10px}
+.num{display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(180,203,247,.3);border-radius:14px;padding:12px 16px;color:#fff;text-decoration:none}
+.num:hover{background:rgba(255,255,255,.16)}
+.num b{font:700 clamp(18px,2.4vw,24px) var(--mono);font-variant-numeric:tabular-nums}
+.num span{font-size:13px;color:var(--hero-muted)}
+footer{color:var(--muted);font-size:14px;margin-top:28px;text-align:center}
+
+/* tray + dialogs */
+.tray{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:14px;background:var(--ink);color:var(--bg);border-radius:16px;padding:10px 10px 10px 18px;box-shadow:0 14px 36px rgba(0,0,0,.35);max-width:calc(100% - 32px)}
+.tray[hidden]{display:none}
+.tray span{font-weight:500;font-size:15px}
+dialog{border:0;padding:0;border-radius:22px;background:var(--surface);color:var(--ink);width:min(760px,calc(100% - 24px));max-height:calc(100% - 24px);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+dialog::backdrop{background:rgba(4,12,32,.6)}
+.dg{display:grid;grid-template-columns:.9fr 1.1fr}
+.dg .stage{aspect-ratio:auto;min-height:260px;height:100%}
+.dc{padding:26px;display:flex;flex-direction:column;gap:12px}
+.dc h2{font-size:28px;font-weight:900}
+.dc h4{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.dc ul{padding-left:18px;display:grid;gap:4px}
+.dc .permit{grid-column:auto}
+.x{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;line-height:1}
+.ec{padding:26px;display:grid;gap:14px}
+.el{list-style:none;padding:0;display:grid;gap:8px}
+.el li{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.el button{border:0;background:none;color:var(--alert);font-weight:700}
+.fld{display:grid;gap:4px;font-size:14px;font-weight:500}
+.fld input{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px}
+pre{margin:0;white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font:500 14px/1.5 var(--mono);max-height:220px;overflow:auto}
+.small{font-size:13px;color:var(--muted)}
+
+@media (max-width:820px){
+  .hgrid{grid-template-columns:1fr;padding-bottom:36px}
+  .orb{height:250px;order:-1}
+  .orb-s{width:150px;height:186px}
+  .contact,.dg{grid-template-columns:1fr}
+  .dg .stage{min-height:200px}
+  .shelf-h{grid-template-columns:1fr}.shelf-h p,.permit{grid-column:1}
+}
+@media (max-width:460px){
+  .wk{grid-template-columns:1fr}
+  .prompt button{display:none}
+  .prompt input{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  .orb-s{animation:none}.scene,.card{transition:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <svg viewBox="-8 -8 114 140" aria-hidden="true"><path d="M49,0 L98,18 L98,61 C98,93 76.5,114 49,124 C21.5,114 0,93 0,61 L0,18 Z" fill="#1C54F2" stroke="#fff" stroke-width="7" stroke-linejoin="round"/><path d="M28,44 L46.5,60 L28,76 M54,77 L72.5,77" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        M&amp;P <span>Developers</span>
+      </div>
+      <nav aria-label="Catalog sections">
+        <a href="#dev">Software</a><a href="#sec">Security testing</a><a href="#soc">Monitoring</a><a href="#art">Creative</a><a href="#work">Our work</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="hgrid">
+      <div>
+        <div class="eyebrow">WEB · SECURITY · SOFTWARE &nbsp;/&nbsp; LUSAKA, ZAMBIA</div>
+        <h1>What do you need <em>built, secured</em> or <em>designed</em>?</h1>
+        <p class="lede">M&amp;P Developers makes software, tests and defends systems, and produces creative media. Type what you need or pick a goal. Add services to your list and send it to us on WhatsApp.</p>
+        <form class="prompt" id="pf">
+          <span class="ps" aria-hidden="true">&gt;_</span>
+          <input id="q" type="search" autocomplete="off" placeholder="try: online shop, we were hacked, poster" aria-label="Search the catalog">
+          <button type="submit">Search</button>
+        </form>
+        <div class="needs" id="needs"><span class="lbl">I want to</span></div>
+      </div>
+      <div class="orb" aria-hidden="true"><div class="orb-s" id="orb"></div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="cats" id="cats" role="group" aria-label="Filter by area"></div>
+    <div class="count" id="count"></div>
+  </div>
+  <div class="status" id="status" hidden></div>
+  <div id="out" aria-live="polite"></div>
+
+  <section class="shelf" id="work">
+    <div class="shelf-h"><span class="mono">work</span><h2>Examples of our work</h2><p>Both made for Plug Electronics &amp; More in Lusaka.</p></div>
+    <div class="work">
+      <div class="wk"><div class="stage" id="wk1"></div><div><span class="sid">dev.01 · Websites</span><h3>plugzm.com</h3><p>The online store website for Plug Electronics &amp; More.</p><div class="row"><a class="btn" href="https://plugzm.com">Visit plugzm.com</a></div></div></div>
+      <div class="wk"><div class="stage" id="wk2"></div><div><span class="sid">art.02 · Animated videos</span><h3>Plug &ldquo;Morning Open&rdquo;</h3><p>An animated promo video for Plug Electronics &amp; More.</p></div></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <h2>Message us on WhatsApp</h2>
+      <p>Tell us what you need, or build a list in the catalog and send it in one message. We are based in Lusaka, Zambia.</p>
+    </div>
+    <div class="nums">
+      <a class="num" href="https://wa.me/260975943331"><b>0975 943 331</b><span>Open WhatsApp</span></a>
+      <a class="num" href="https://wa.me/260777164682"><b>0777 164 682</b><span>Open WhatsApp</span></a>
+    </div>
+  </section>
+  <footer>M&amp;P Developers · Web · Security · Software · Lusaka, Zambia</footer>
+</main>
+
+<div class="tray" id="tray" hidden><span id="trayn"></span><button class="btn pri" id="trayb">Review and send</button></div>
+
+<dialog id="dlg" aria-labelledby="dt"><button class="x" data-close aria-label="Close">×</button><div class="dg"><div class="stage" id="dart"></div><div class="dc" id="dbody"></div></div></dialog>
+
+<dialog id="enq" aria-labelledby="et"><button class="x" data-close aria-label="Close">×</button>
+  <div class="ec">
+    <h2 id="et" style="font-size:26px">Your enquiry</h2>
+    <ul class="el" id="elist"></ul>
+    <label class="fld" for="enq-name">Your name or business (optional)<input id="enq-name" type="text" autocomplete="name"></label>
+    <pre id="emsg"></pre>
+    <div class="row"><a class="btn pri" id="ewa" href="https://wa.me/260975943331">Open WhatsApp with this message</a><button class="btn" id="ecopy">Copy message</button></div>
+    <p class="small">WhatsApp: 0975 943 331 or 0777 164 682. If the link does not open, copy the message and paste it into a chat with either number.</p>
+  </div>
+</dialog>
+
+<script>
+/* ---------- data ---------- */
+const CATS={
+  dev:{n:'Software & Web Development',short:'Software',p:'Websites, apps and the systems that run behind them.'},
+  sec:{n:'Security Testing',short:'Security testing',p:'We attack your systems the way a criminal would and show you what to fix before someone else finds it.',permit:1},
+  soc:{n:'Security Monitoring & Response',short:'Monitoring',p:'Watching for attacks, and cleaning up when one gets through.'},
+  art:{n:'Creative & Media',short:'Creative',p:'3D images, animation, posters and books.'}
+};
+const S=[
+{id:'dev.01',c:'dev',k:'browser',n:'Websites',s:'Business sites, e-commerce and school portals.',d:'A website that explains what you do, works well on a phone and lets customers reach you or buy from you. We design it, build it and put it online.',g:['Business and company websites','Online shops (e-commerce)','School portals'],f:'Businesses, shops and schools that want to be found and trusted online.',w:'site web online shop store sell selling ecommerce school portal company page'},
+{id:'dev.02',c:'dev',k:'dash',n:'Web Apps',s:'Pay pages, dashboards and admin panels.',d:'Software that runs in the browser, so your staff and customers need nothing installed. Use it to take payments, track what is happening and manage your records.',g:['Payment pages','Dashboards that show your numbers','Admin panels for managing users, orders and content'],f:'Teams that have outgrown spreadsheets and paper.',w:'webapp dashboard admin panel pay payment page system portal manage'},
+{id:'dev.03',c:'dev',k:'api',n:'APIs',s:'Connect MTN MoMo, Airtel Money and banks to your website.',d:'We connect your website or app to mobile money and banks, so a customer pays and your system knows straight away.',g:['MTN MoMo integration','Airtel Money integration','Bank connections'],f:'Any business that wants to be paid online in Zambia.',w:'api mtn momo airtel money mobile bank payment payments pay integration connect kwacha'},
+{id:'dev.04',c:'dev',k:'db',n:'Databases',s:'Store users, payments and orders.',d:'A properly designed database keeps your users, payments and orders in one safe, organised place that your apps can search quickly.',g:['Database design','Storage for users, payments and orders','Set up to work with your website or app'],f:'Businesses whose records are scattered or keep getting lost.',w:'database data records storage sql users orders customers'},
+{id:'dev.05',c:'dev',k:'server',n:'Servers',s:'Backend systems that power apps and websites.',d:'The backend is the part customers never see: the system that receives requests, applies your business rules and sends back the right answer.',g:['Backend systems for apps and websites','Business logic built to your rules','Connected to your database and payments'],f:'Apps and sites that need more than static pages.',w:'server backend system logic hosting engine'},
+{id:'dev.06',c:'dev',k:'auth',n:'Auth',s:'Login, OTP, JWT and password reset.',d:'Secure sign-in for your app or website, so only the right people get into the right accounts.',g:['Login and sign-up','One-time passwords (OTP)','JWT sessions','Password reset'],f:'Any system that holds accounts, money or private data.',w:'auth login signin sign-in signup otp jwt password reset account authentication'},
+{id:'dev.07',c:'dev',k:'phone',n:'Mobile Apps',s:'Android and iPhone apps.',d:'An app for your business on the phones your customers already carry.',g:['Android apps','iPhone apps'],f:'Businesses whose customers live on their phones.',w:'mobile app apps android iphone ios phone application'},
+{id:'dev.08',c:'dev',k:'pos',n:'Desktop Apps',s:'POS systems for shops.',d:'Point-of-sale software for your shop counter: ring up sales, print receipts and know what was sold.',g:['POS systems for shops','Desktop software for Windows computers'],f:'Shops that want faster checkouts and clear sales records.',w:'desktop pos point sale shop till counter receipt stock retail computer windows'},
+{id:'dev.09',c:'dev',k:'game',n:'Games',s:'Mobile and desktop games.',d:'Games for phones and computers, built from the idea to something people can play.',g:['Mobile games','Desktop games'],f:'Brands, studios and anyone with a game idea.',w:'game games gaming play mobile desktop'},
+{id:'dev.10',c:'dev',k:'chat',n:'AI Apps',s:'Chatbots and audit bots.',d:'AI tools that answer questions and check work for you, so your team spends less time on repeated tasks.',g:['Chatbots that answer customers','Audit bots that check records for problems'],f:'Teams that answer the same questions every day.',w:'ai artificial intelligence chatbot bot audit assistant gpt'},
+{id:'dev.11',c:'dev',k:'auto',n:'Automation',s:'WhatsApp bots, scraping and auto-reports.',d:'We make the computer do the routine work: reply on WhatsApp, collect data from websites and send reports without anyone typing them.',g:['WhatsApp bots','Web scraping (collecting data from websites)','Automatic reports'],f:'Anyone doing the same computer task again and again.',w:'automation automate whatsapp bot scraping scrape report reports auto routine time save'},
+{id:'dev.12',c:'dev',k:'cloud',n:'DevOps',s:'Deploy to VPS, Docker and AWS. Fix server crashes. CI/CD.',d:'We put your software online and keep it there. When a server crashes we find out why and fix it.',g:['Deployment to a VPS or AWS','Docker setup','Fixing server crashes','CI/CD so updates go live safely'],f:'Teams with software that is hard to launch or keeps going down.',w:'devops deploy deployment vps docker aws cloud server crash crashed down ci cd hosting'},
+
+{id:'sec.01',c:'sec',k:'websec',n:'Web Security Testing',s:'SQL injection, XSS and other bugs in websites.',d:'We test your website for the weaknesses attackers look for first, then tell you exactly where they are.',g:['SQL injection testing','Cross-site scripting (XSS) testing','A list of the bugs we found'],f:'Any website that handles logins, payments or customer data.',w:'web website security test testing sql injection xss bug vulnerability hack hacked hackable'},
+{id:'sec.02',c:'sec',k:'mobsec',n:'Mobile Security Testing',s:'MDM and device-lock testing, reverse engineering APKs.',d:'We take your Android app or device controls apart to see whether someone else could break them.',g:['MDM testing','Device-lock testing','Reverse engineering of APKs'],f:'Companies that ship Android apps or lock devices they finance or manage.',w:'mobile android apk mdm device lock reverse engineering phone security test'},
+{id:'sec.03',c:'sec',k:'netsec',n:'Network Security Testing',s:'WiFi security and man-in-the-middle testing.',d:'We check whether someone near your office could get onto your network or listen in on your traffic.',g:['WiFi security testing','Man-in-the-middle testing'],f:'Offices, shops and schools that run their own WiFi.',w:'network wifi wi-fi wireless router man middle mitm internet office security test'},
+{id:'sec.04',c:'sec',k:'phish',n:'Phishing Tests',s:'Test whether staff click fake links.',d:'We send your staff safe, fake scam messages and measure who clicks. You see how exposed you are without anyone being harmed.',g:['Simulated phishing messages','A count of who clicked'],f:'Any organisation whose staff use email or WhatsApp for work.',w:'phishing phish fake link email scam staff click employees test social'},
+{id:'sec.05',c:'sec',k:'pentest',n:'Penetration Testing',s:'We hack your company legally and report the weaknesses.',d:'A full, agreed attack on your company, carried out the way a real attacker would work. You get a report of every weakness we used.',g:['Legal, agreed hacking of your systems','A report of the weaknesses found'],f:'Banks, fintechs and any company that needs to know how it would stand up to an attack.',w:'penetration pentest pen test ethical hack hacking hacked hackable attack security report weakness'},
+{id:'sec.06',c:'sec',k:'bounty',n:'Bug Bounty',s:'Finding bugs for big companies and getting paid.',d:'We hunt for security bugs in the bounty programmes that large companies run, and report what we find to them.',g:['Bug hunting on company bounty programmes','Reporting each bug to the company'],f:'Companies that reward researchers for finding flaws before criminals do.',w:'bug bounty bugs reward researcher vulnerability hunting'},
+
+{id:'soc.01',c:'soc',k:'soc',n:'SOC Analyst',s:'Watching logs 24/7 to catch hackers.',d:'We watch your system logs around the clock and raise the alarm when something looks like an attack.',g:['24/7 log monitoring','Catching attacks as they happen'],f:'Banks and other organisations that cannot afford to miss an intrusion.',w:'soc analyst monitoring monitor logs 24/7 watch detect bank hackers alert security operations'},
+{id:'soc.02',c:'soc',k:'incident',n:'Incident Response',s:'When a company is hacked, we clean it up.',d:'If you have been hacked, we come in, stop the attack and clean up your systems.',g:['Stopping an attack in progress','Cleaning up after a hack'],f:'Any company that has just been hacked or suspects it has.',w:'incident response hacked hack breach attack emergency clean cleanup ransomware compromised help'},
+{id:'soc.03',c:'soc',k:'malware',n:'Malware Analysis',s:'Reverse engineering viruses.',d:'We take a virus apart to learn what it does, so you know what it touched and how to deal with it.',g:['Reverse engineering of viruses and malware','An explanation of what the malware does'],f:'Teams that have found a suspicious file or infection.',w:'malware virus viruses trojan ransomware reverse engineering infected infection analysis'},
+{id:'soc.04',c:'soc',k:'audit',n:'Security Auditing',s:'Checking whether a system is safe.',d:'A careful check of your system against what a safe one should look like, so you know where you stand.',g:['A review of whether your system is safe','A list of what needs fixing'],f:'Banks and businesses that need to show their systems are secure.',w:'audit auditing security check review safe compliance bank assessment'},
+{id:'soc.05',c:'soc',k:'cloudsec',n:'Cloud Security',s:'Securing AWS and Google Cloud servers.',d:'We lock down your cloud servers so that only the right people and services can reach them.',g:['Securing AWS servers','Securing Google Cloud servers'],f:'Any business running on AWS or Google Cloud.',w:'cloud aws google gcp server secure security harden'},
+{id:'soc.06',c:'soc',k:'forensics',n:'Forensics',s:'Recovering deleted files and tracing who hacked you.',d:'We dig through devices and systems to recover what was deleted and trace who was behind an attack.',g:['Recovering deleted files','Tracing who hacked a system'],f:'Businesses that have lost data or need to know who got in.',w:'forensics forensic recover recovery deleted files lost data trace who hacked investigation evidence'},
+{id:'soc.07',c:'soc',k:'training',n:'Security Awareness Training',s:'Teaching staff not to get scammed.',d:'We teach your staff how scams work and how to spot them, so they stop being the easy way in.',g:['Training sessions for staff','How to spot scams and fake links'],f:'Any team that handles money, logins or customer data.',w:'training train awareness staff employees scam scammed teach workshop course education'},
+
+{id:'art.01',c:'art',k:'cube',n:'3D Images',s:'3D images for your brand or product.',d:'Three-dimensional images that show your product, logo or idea with depth and light.',g:['3D images'],f:'Product launches, adverts and brand visuals.',w:'3d three dimensional image images render rendering graphic design brand promote'},
+{id:'art.02',c:'art',k:'video',n:'Animated Videos',s:'Animated videos, such as promos.',d:'Animated videos that explain or promote what you do, like the Morning Open promo we made for Plug Electronics & More.',g:['Animated promo videos'],f:'Adverts, social media and shop openings.',w:'animated animation video videos promo advert ad motion brand promote marketing'},
+{id:'art.03',c:'art',k:'poster',n:'Posters',s:'Posters for print and social media.',d:'Posters that get your offer, event or brand noticed.',g:['Poster design'],f:'Promotions, events and announcements.',w:'poster posters flyer design print graphic advert brand promote marketing'},
+{id:'art.04',c:'art',k:'book',n:'Books',s:'Books designed and put together for you.',d:'We turn your material into a finished book.',g:['Book design and layout'],f:'Trainers, schools and businesses with knowledge to publish.',w:'book books ebook publish publishing layout manual guide brand'}
+];
+S.forEach(x=>x.h=(x.n+' '+x.s+' '+x.d+' '+x.g.join(' ')+' '+x.w+' '+x.id).toLowerCase());
+const BY=Object.fromEntries(S.map(x=>[x.id,x]));
+const NEEDS=[
+ ['sell','sell online',['dev.01','dev.03','dev.02','dev.06','dev.04']],
+ ['momo','take MoMo and Airtel Money',['dev.03','dev.02','dev.06']],
+ ['shop','run my shop',['dev.08','dev.04','dev.11']],
+ ['app','build an app',['dev.07','dev.02','dev.05','dev.06','dev.04','dev.12']],
+ ['time','save time on routine work',['dev.11','dev.10']],
+ ['check','find out if we can be hacked',['sec.05','sec.01','sec.02','sec.03','sec.04','soc.04']],
+ ['hacked','recover from a hack',['soc.02','soc.06','soc.03','soc.01']],
+ ['staff','train my staff',['soc.07','sec.04']],
+ ['brand','promote my brand',['art.03','art.02','art.01','art.04','dev.01']]
+];
+
+/* ---------- 3D art ---------- */
+const R=(x,y,w,h,r,c,e='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" class="${c}" ${e}/>`;
+const C=(x,y,r,c)=>`<circle cx="${x}" cy="${y}" r="${r}" class="${c}"/>`;
+const P=(d,c)=>`<path d="${d}" class="${c}"/>`;
+const T=(x,y,t,s=12)=>`<text x="${x}" y="${y}" font-size="${s}">${t}</text>`;
+const lines=(x,y,w,n,c='s')=>Array.from({length:n},(_,i)=>R(x,y+i*11,w*[1,.7,.86,.55,.78][i%5],5,2.5,c)).join('');
+const plate=R(22,18,156,114,14,'g');
+const win=R(26,22,148,106,10,'w')+R(26,22,148,20,10,'b')+R(26,34,148,8,0,'b')+C(37,32,3,'w')+C(47,32,3,'w')+C(57,32,3,'w');
+const phone=x=>R(x,14,62,122,12,'n')+R(x+5,24,52,98,6,'w')+R(x+22,17.5,18,3,1.5,'s');
+const mag=(x,y,inner='')=>C(x,y,17,'w')+inner+`<circle cx="${x}" cy="${y}" r="17" class="ln"/>`+P(`M${x+13},${y+13} l15,15`,'ln');
+const lock=(x,y)=>P(`M${x+8},${y+16} v-8 a12,12 0 0 1 24,0 v8`,'ln')+R(x,y+16,40,30,7,'b')+C(x+20,y+31,4,'w');
+const cloud=(x,y,c)=>P(`M${x+20},${y+50} a20,20 0 0 1 4,-39 a28,28 0 0 1 54,6 a17,17 0 0 1 2,33 z`,c);
+const bug=(x,y,c,sc=1)=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-11,-6 l-9,-5 M-12,2 h-10 M-11,9 l-9,5 M11,-6 l9,-5 M12,2 h10 M11,9 l9,5" class="${c==='a'?'la':'ln'} thin"/><ellipse rx="11" ry="14" class="${c}"/><circle cy="-16" r="6" class="${c}"/></g>`;
+const check=(x,y)=>C(x,y,13,'k')+P(`M${x-6},${y} l4,5 l8,-9`,'l thin');
+const shield=(x,y,sc,c='b')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M49,0 L98,18 L98,61 C98,93 76.5,114 49,124 C21.5,114 0,93 0,61 L0,18 Z" class="${c}"/><path d="M28,44 L46.5,60 L28,76 M54,77 L72.5,77" class="l" style="stroke-width:9"/></g>`;
+const spark=(x,y,c='s')=>P(`M${x},${y-14} l4,10 l10,4 l-10,4 l-4,10 l-4,-10 l-10,-4 l10,-4 z`,c);
+const ART={
+ browser:[win,R(36,50,58,42,5,'s')+lines(102,52,60,3)+R(36,100,128,6,3,'s')+R(36,112,90,6,3,'s'),R(102,86,48,18,9,'b')+P('M142,96 l0,24 l7,-6 l5,11 l6,-3 l-5,-10 l9,-1 z','n')],
+ dash:[win,R(38,90,14,30,3,'s')+R(58,74,14,46,3,'b')+R(78,82,14,38,3,'s')+R(98,62,14,58,3,'b'),R(120,50,48,42,8,'n')+P('M128,82 l9,-10 l8,5 l13,-17','l thin')+C(158,60,4,'k')],
+ api:[phone(20)+R(122,48,60,62,8,'w')+P('M132,72 l20,-12 l20,12 z','b')+R(136,76,5,18,1,'b')+R(149.5,76,5,18,1,'b')+R(163,76,5,18,1,'b')+R(132,97,40,5,1,'b'),P('M86,78 H120','lb dash')+C(51,58,15,'b')+T(51,63,'K',14)+lines(33,84,36,2),R(78,98,50,22,11,'k')+T(103,113,'PAID',11)],
+ db:[plate,[92,68,44].map(y=>`<path d="M58,${y} v18 a42,11 0 0 0 84,0 v-18 z" class="b"/><ellipse cx="100" cy="${y}" rx="42" ry="11" class="s"/>`).join(''),R(118,84,58,42,7,'w')+lines(126,94,42,3)],
+ server:[plate,[0,1,2].map(i=>R(44,28+i*32,112,26,7,'n')+C(58,41+i*32,4,'k')+C(70,41+i*32,4,'s')+R(96,38+i*32,48,6,3,'s')).join(''),check(156,116)],
+ auth:[R(38,22,124,108,12,'w')+R(52,36,56,7,3.5,'s')+R(52,102,96,18,9,'b'),[0,1,2,3].map(i=>R(52+i*25,54,21,30,5,'n')+C(62.5+i*25,69,3.5,'w')).join(''),lock(134,4)],
+ phone:[plate,phone(69)+[0,1,2].map(i=>[0,1,2].map(j=>R(79+i*15,32+j*15,11,11,3,(i+j)%2?'s':'b')).join('')).join('')+R(79,82,42,6,3,'s')+R(79,94,28,6,3,'s'),R(110,16,66,28,11,'b')+C(125,30,6,'w')+R(137,27,30,6,3,'w')],
+ pos:[R(26,20,112,80,8,'n')+R(32,26,100,68,4,'w')+R(73,100,18,14,2,'n')+R(55,113,54,8,4,'n'),[0,1,2].map(i=>[0,1].map(j=>R(38+i*22,32+j*22,18,18,4,(i+j)%2?'b':'s')).join('')).join('')+R(38,78,62,8,4,'s'),P('M128,52 h44 v72 l-5.5,-5 l-5.5,5 l-5.5,-5 l-5.5,5 l-5.5,-5 l-5.5,5 l-5.5,-5 l-5.5,5 z','w')+lines(135,62,30,3)+R(135,100,30,8,2,'b')],
+ game:[plate,P('M62,50 h76 a26,26 0 0 1 26,26 v8 a18,18 0 0 1 -34,8 l-6,-10 h-48 l-6,10 a18,18 0 0 1 -34,-8 v-8 a26,26 0 0 1 26,-26 z','n')+R(58,60,8,24,2,'w')+R(50,68,24,8,2,'w')+C(132,62,5,'b')+C(144,72,5,'s')+C(120,72,5,'s')+C(132,82,5,'b'),P('M152,18 l5,11 l12,1 l-9,8 l3,12 l-11,-6 l-11,6 l3,-12 l-9,-8 l12,-1 z','b')+C(40,112,7,'s')],
+ chat:[plate,P('M34,30 h84 a10,10 0 0 1 10,10 v24 a10,10 0 0 1 -10,10 h-62 l-14,12 v-12 h-8 a10,10 0 0 1 -10,-10 v-24 a10,10 0 0 1 10,-10 z','w')+lines(38,42,74,2),R(84,84,92,40,12,'b')+C(111,104,5,'w')+C(130,104,5,'w')+C(149,104,5,'w')+spark(160,50)],
+ auto:[plate,Array.from({length:8},(_,i)=>R(67,38,12,14,3,'n',`transform="rotate(${i*45} 73 74)"`)).join('')+C(73,74,25,'n')+C(73,74,9,'w')+P('M104,74 h20','lb dash'),R(124,36,52,70,7,'w')+R(132,84,8,14,2,'s')+R(144,72,8,26,2,'b')+R(156,78,8,20,2,'s')+lines(132,46,36,2)+check(170,108)],
+ cloud:[plate,cloud(52,24,'w'),R(62,94,24,20,4,'b')+R(89,94,24,20,4,'s')+R(116,94,24,20,4,'b')+P('M101,84 v-30 M89,66 l12,-12 l12,12','lb')],
+ websec:[win,lines(38,52,92,2)+R(38,74,74,7,3,'a')+lines(38,86,80,3),mag(140,90,bug(140,92,'a',.6))],
+ mobsec:[plate,phone(36)+lock(47,46),R(30,72,74,3,1.5,'a')+mag(140,84,lines(129,78,22,2,'n'))],
+ netsec:[plate,R(58,96,84,24,7,'n')+C(72,108,3.5,'k')+C(83,108,3.5,'s')+P('M78,76 a32,32 0 0 1 44,0','lb')+P('M66,62 a48,48 0 0 1 68,0','lb')+C(100,88,5,'b'),P('M136,58 l12,-10','la thin dash')+C(158,40,15,'a')+T(158,46,'!',18)],
+ phish:[plate,R(38,48,124,78,9,'w')+P('M42,54 l58,38 l58,-38','lb'),P('M152,6 v54 a15,15 0 0 1 -30,0 v-6','la')+P('M122,54 l8,7','la')+R(72,104,56,13,6.5,'a')],
+ pentest:[plate,C(86,76,46,'w')+C(86,76,34,'s')+C(86,76,22,'w')+C(86,76,10,'b'),P('M160,18 L92,72','ln')+P('M160,18 l-16,2 M160,18 l-3,16','ln')+R(132,78,46,54,7,'w')+lines(140,88,30,2)+check(155,118)],
+ bounty:[plate,bug(84,82,'n',2),C(146,48,22,'b')+C(146,48,15,'s')+T(146,54,'K',18)+spark(52,34,'b')],
+ soc:[R(22,20,156,94,9,'n')+R(28,26,144,82,4,'w')+R(88,114,24,10,2,'n')+R(68,123,64,8,4,'n'),lines(36,36,56,5)+P('M100,94 l12,-18 l10,10 l12,-28 l12,16 l10,-8','lb thin'),C(160,30,15,'a')+T(160,36,'!',18)+R(32,88,46,20,10,'b')+T(55,102,'24/7',11)],
+ incident:[plate,shield(48,12,1),R(116,72,46,46,11,'w')+R(135,80,8,30,2,'a')+R(124,91,30,8,2,'a')],
+ malware:[R(46,14,96,122,9,'w')+lines(58,28,70,9),bug(92,76,'a',1.5),mag(136,100)],
+ audit:[R(44,20,112,116,10,'n')+R(52,32,96,96,5,'w')+R(80,13,40,17,6,'s'),[0,1,2].map(i=>C(68,52+i*25,8,i===2?'a':'k')+R(84,48.5+i*25,i===1?40:54,7,3.5,'s')).join(''),shield(124,82,.48)],
+ cloudsec:[plate,cloud(48,28,'w'),lock(82,62)],
+ forensics:[P('M28,40 h46 l10,12 h88 v72 a8,8 0 0 1 -8,8 h-128 a8,8 0 0 1 -8,-8 z','n'),R(56,26,56,66,6,'w')+lines(64,36,40,4)+R(28,66,144,66,8,'b'),mag(136,96,P('M127,100 a9,9 0 0 1 18,0 M131,103 a5,5 0 0 1 10,0 M123,96 a13,13 0 0 1 26,0','lb thin'))],
+ training:[R(28,14,144,84,8,'w')+R(28,14,144,10,5,'n')+shield(44,34,.4)+lines(96,40,62,4),[0,1,2].map(i=>C(58+i*42,112,10,'n')+P(`M${40+i*42},140 a18,16 0 0 1 36,0 z`,'n')).join(''),P('M158,58 l20,34 h-40 z','a')+T(158,88,'!',16)],
+ cube:[plate,P('M100,30 l46,23 l-46,23 l-46,-23 z','s')+P('M54,53 l46,23 v50 l-46,-23 z','b')+P('M146,53 l-46,23 v50 l46,-23 z','d'),spark(156,34,'w')+spark(44,112,'b')],
+ video:[R(24,22,152,106,10,'n')+R(32,30,136,72,5,'s')+C(64,56,12,'w')+P('M32,102 l34,-30 l26,20 l22,-14 l54,24 z','b'),R(32,110,136,6,3,'d')+R(32,110,62,6,3,'b')+C(94,113,6,'w'),C(100,66,23,'b')+P('M93,54 l21,12 l-21,12 z','w')],
+ poster:[R(52,10,96,130,6,'w'),C(100,54,28,'b')+C(118,42,12,'s')+R(64,94,72,11,5,'n')+R(64,112,46,7,3.5,'s')+R(64,124,58,7,3.5,'s'),C(146,26,20,'a')+T(146,30,'NEW',11)],
+ book:[R(62,24,94,112,6,'d')+R(58,22,92,110,4,'w'),R(46,16,94,114,6,'b')+R(46,16,11,114,4,'d')+R(68,36,56,10,5,'w')+R(68,54,38,6,3,'s')+shield(80,74,.3,'d'),P('M118,8 h17 v42 l-8.5,-8 l-8.5,8 z','a')]
+};
+const art=k=>`<div class="scene">${ART[k].map((l,i)=>`<svg class="ly" style="--z:${i*24}px" viewBox="0 0 200 150" aria-hidden="true">${l}</svg>`).join('')}</div>`;
+
+/* hero shield: stacked copies give it real thickness */
+(function(){
+  const sh='M49,0 L98,18 L98,61 C98,93 76.5,114 49,124 C21.5,114 0,93 0,61 L0,18 Z';
+  let h='';
+  for(let i=0;i<10;i++)h+=`<svg viewBox="-8 -8 114 140" style="transform:translateZ(${i*3}px)"><path d="${sh}" fill="#0E2C99" stroke="#C9D9FB" stroke-width="7" stroke-linejoin="round"/></svg>`;
+  h+=`<svg viewBox="-8 -8 114 140" style="transform:translateZ(30px)"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B7BFF"/><stop offset=".55" stop-color="#1C54F2"/><stop offset="1" stop-color="#1238C4"/></linearGradient></defs><path d="${sh}" fill="url(#hg)" stroke="#fff" stroke-width="7" stroke-linejoin="round"/><path d="M49,0 L0,18 L0,61 C0,93 21.5,114 49,124 Z" fill="#fff" opacity=".08"/></svg>`;
+  h+=`<svg viewBox="-8 -8 114 140" style="transform:translateZ(52px);filter:drop-shadow(0 6px 6px rgba(7,25,61,.5))"><path d="M28,44 L46.5,60 L28,76 M54,77 L72.5,77" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  h+=`<div class="tag" style="left:-62%;top:2%;transform:translateZ(-30px)"><b>&gt;_</b> WEB</div><div class="tag" style="right:-46%;top:38%;transform:translateZ(84px)"><b>&gt;_</b> SECURITY</div><div class="tag" style="left:-30%;bottom:2%;transform:translateZ(110px)"><b>&gt;_</b> SOFTWARE</div>`;
+  document.getElementById('orb').innerHTML=h;
+})();
+
+/* ---------- state ---------- */
+const $=id=>document.getElementById(id);
+const st={q:'',cat:'all',need:null,list:[]};
+try{const v=JSON.parse(localStorage.getItem('mp-enquiry')||'[]');if(Array.isArray(v))st.list=v.filter(i=>BY[i]);}catch(e){}
+const save=()=>{try{localStorage.setItem('mp-enquiry',JSON.stringify(st.list))}catch(e){}};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const STOP=new Set('a an the i we my our to for of and or is are was were need want with in on it me us can you do have has been get got how that this some make made'.split(' '));
+function score(x,toks){let n=0;for(const t of toks){if(x.h.includes(t))n+=2;else if(t.length>5&&x.h.includes(t.slice(0,-2)))n+=1;}return n;}
+
+const card=x=>`<article class="card" data-id="${x.id}"><button class="open" data-open aria-label="Details: ${esc(x.n)}"><div class="stage">${art(x.k)}</div></button><div class="cb"><span class="sid">${x.id}</span><h3>${esc(x.n)}</h3><p>${esc(x.s)}</p><div class="row"><button class="btn" data-open>Details</button><button class="btn" data-add aria-pressed="${st.list.includes(x.id)}">${st.list.includes(x.id)?'Added':'Add to enquiry'}</button></div></div></article>`;
+const permit='<div class="permit">Authorised testing only. We test with the owner\'s written permission.</div>';
+const shelf=(k,items)=>`<section class="shelf" id="${k}"><div class="shelf-h"><span class="mono">${k}</span><h2>${esc(CATS[k].n)}</h2><p>${esc(CATS[k].p)}</p>${CATS[k].permit?permit:''}</div><div class="grid">${items.map(card).join('')}</div></section>`;
+
+function render(){
+  const out=$('out'),status=$('status');let shown=S.length,msg='';
+  const toks=(st.q.toLowerCase().match(/[a-z0-9/.-]+/g)||[]).filter(t=>t.length>1&&!STOP.has(t));
+  if(st.need){
+    const n=NEEDS.find(x=>x[0]===st.need);const items=n[2].map(i=>BY[i]);shown=items.length;
+    msg=`<span>Services that help you <b>${esc(n[1])}</b>, most useful first.</span><button data-clear>Show everything</button>`;
+    out.innerHTML=`<div class="grid" style="margin-top:14px">${items.map(card).join('')}</div>`;
+  }else if(toks.length){
+    const items=S.map(x=>[score(x,toks),x]).filter(a=>a[0]>0&&(st.cat==='all'||a[1].c===st.cat)).sort((a,b)=>b[0]-a[0]).map(a=>a[1]);shown=items.length;
+    msg=`<span>${items.length} match${items.length===1?'':'es'} for <b class="mono">${esc(st.q)}</b></span><button data-clear>Clear search</button>`;
+    out.innerHTML=items.length?`<div class="grid" style="margin-top:14px">${items.map(card).join('')}</div>`:`<div class="empty" style="margin-top:14px"><p>Nothing in the catalog matches that yet.</p><p>Message us on WhatsApp at 0975 943 331 and ask.</p></div>`;
+  }else{
+    const ks=st.cat==='all'?Object.keys(CATS):[st.cat];
+    shown=S.filter(x=>ks.includes(x.c)).length;
+    out.innerHTML=ks.map(k=>shelf(k,S.filter(x=>x.c===k))).join('');
+  }
+  status.hidden=!msg;status.innerHTML=msg;
+  $('count').textContent=`Showing ${shown} of ${S.length} services`;
+  document.querySelectorAll('.cat').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===st.cat&&!st.need));
+  document.querySelectorAll('.need').forEach(b=>b.setAttribute('aria-pressed',b.dataset.need===st.need));
+  tray();
+}
+function tray(){const n=st.list.length;$('tray').hidden=!n;$('trayn').textContent=`${n} service${n===1?'':'s'} in your enquiry`;}
+
+/* controls */
+$('cats').innerHTML=`<button class="cat" data-cat="all">All services</button>`+Object.entries(CATS).map(([k,v])=>`<button class="cat" data-cat="${k}"><span class="mono">${k}</span>${esc(v.short)}</button>`).join('');
+$('needs').insertAdjacentHTML('beforeend',NEEDS.map(n=>`<button type="button" class="need" data-need="${n[0]}">${esc(n[1])}</button>`).join(''));
+$('wk1').innerHTML=art('browser');$('wk2').innerHTML=art('video');
+$('cats').addEventListener('click',e=>{const b=e.target.closest('.cat');if(!b)return;st.cat=b.dataset.cat;st.need=null;render();});
+$('needs').addEventListener('click',e=>{const b=e.target.closest('.need');if(!b)return;st.need=st.need===b.dataset.need?null:b.dataset.need;st.q='';$('q').value='';st.cat='all';render();if(st.need)$('status').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});});
+$('q').addEventListener('input',e=>{st.q=e.target.value;st.need=null;render();});
+$('pf').addEventListener('submit',e=>{e.preventDefault();$('status').hidden||$('status').scrollIntoView({block:'start'});});
+document.querySelectorAll('.top nav a').forEach(a=>a.addEventListener('click',()=>{if(st.q||st.need||st.cat!=='all'){st.q='';$('q').value='';st.need=null;st.cat='all';render();}}));
+$('status').addEventListener('click',e=>{if(e.target.closest('[data-clear]')){st.q='';$('q').value='';st.need=null;render();}});
+
+function toggle(id){const i=st.list.indexOf(id);i<0?st.list.push(id):st.list.splice(i,1);save();}
+$('out').addEventListener('click',e=>{
+  const c=e.target.closest('.card');if(!c)return;const id=c.dataset.id;
+  if(e.target.closest('[data-add]')){toggle(id);const b=c.querySelector('[data-add]'),on=st.list.includes(id);b.setAttribute('aria-pressed',on);b.textContent=on?'Added':'Add to enquiry';tray();}
+  else if(e.target.closest('[data-open]'))openSvc(id);
+});
+/* pointer tilt */
+$('out').addEventListener('pointermove',e=>{const s=e.target.closest('.card');if(!s||e.pointerType==='touch')return;const r=s.getBoundingClientRect();s.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*38+'deg');s.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*24+'deg');});
+$('out').addEventListener('pointerout',e=>{const s=e.target.closest('.card');if(s&&!s.contains(e.relatedTarget)){s.style.removeProperty('--ry');s.style.removeProperty('--rx');}});
+
+/* detail dialog */
+const wa=t=>'https://wa.me/260975943331?text='+encodeURIComponent(t);
+let cur=null;
+function openSvc(id){
+  const x=BY[id];cur=id;$('dart').innerHTML=art(x.k);
+  const on=st.list.includes(id);
+  $('dbody').innerHTML=`<span class="sid">${x.id} · ${esc(CATS[x.c].n)}</span><h2 id="dt">${esc(x.n)}</h2><p>${esc(x.d)}</p><h4>What you get</h4><ul>${x.g.map(g=>`<li>${esc(g)}</li>`).join('')}</ul><h4>Good for</h4><p>${esc(x.f)}</p>${CATS[x.c].permit?permit:''}<div class="row"><button class="btn pri" id="dadd" aria-pressed="${on}">${on?'Added to enquiry':'Add to enquiry'}</button><a class="btn" href="${wa('Hello M&P Developers, I would like to ask about '+x.n+' ('+x.id+').')}">Ask on WhatsApp</a></div>`;
+  $('dlg').showModal();
+}
+$('dbody').addEventListener('click',e=>{if(e.target.id==='dadd'){toggle(cur);const on=st.list.includes(cur);e.target.setAttribute('aria-pressed',on);e.target.textContent=on?'Added to enquiry':'Add to enquiry';render();}});
+$('dart').addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=$('dart').getBoundingClientRect();$('dart').style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*50+'deg');$('dart').style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*30+'deg');});
+document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-close]'))d.close();}));
+
+/* enquiry dialog */
+function message(){const nm=$('enq-name').value.trim();return 'Hello M&P Developers, I am interested in:\n'+st.list.map(i=>'- '+BY[i].n+' ('+i+')').join('\n')+(nm?'\n\nFrom: '+nm:'');}
+function enq(){
+  $('elist').innerHTML=st.list.length?st.list.map(i=>`<li><span><span class="sid">${i}</span> ${esc(BY[i].n)}</span><button data-rm="${i}" aria-label="Remove ${esc(BY[i].n)}">Remove</button></li>`).join(''):'<li>Your list is empty. Add services from the catalog.</li>';
+  const m=message();$('emsg').textContent=m;$('ewa').href=wa(m);
+}
+$('trayb').addEventListener('click',()=>{enq();$('enq').showModal();});
+$('elist').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;toggle(b.dataset.rm);enq();render();});
+$('enq-name').addEventListener('input',enq);
+$('ecopy').addEventListener('click',async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText(message());b.textContent='Copied';}catch(err){b.textContent='Select the text above and copy it';}setTimeout(()=>b.textContent='Copy message',2200);});
+
+render();
+</script>
+</body>
+</html>
