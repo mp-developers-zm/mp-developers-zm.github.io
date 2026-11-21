@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-2DyBv55bhnIOhk0rRHvKVXPnu/uXDWcNleEeAa+R22c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>M&amp;P Developers Service Catalog</title>
 <meta name="description" content="Websites, apps, mobile money integration, security testing and creative media from M&amp;P Developers in Lusaka, Zambia. WhatsApp 0975 943 331.">
 <meta property="og:title" content="M&amp;P Developers Service Catalog">
@@ -247,7 +249,7 @@ pre{margin:0;white-space:pre-wrap;background:var(--bg);border:1px solid var(--li
       <a class="num" href="https://wa.me/260777164682"><b>0777 164 682</b><span>Open WhatsApp</span></a>
     </div>
   </section>
-  <footer>M&amp;P Developers · Web · Security · Software · Lusaka, Zambia</footer>
+  <footer>M&amp;P Developers · Web · Security · Software · Lusaka, Zambia<br><a href="terms.html">Terms of Use</a> · <a href="privacy.html">Privacy Policy</a> · No cookies or tracking</footer>
 </main>
 
 <div class="tray" id="tray" hidden><span id="trayn"></span><button class="btn pri" id="trayb">Review and send</button></div>
@@ -260,11 +262,12 @@ pre{margin:0;white-space:pre-wrap;background:var(--bg);border:1px solid var(--li
     <ul class="el" id="elist"></ul>
     <label class="fld" for="enq-name">Your name or business (optional)<input id="enq-name" type="text" autocomplete="name"></label>
     <pre id="emsg"></pre>
-    <div class="row"><a class="btn pri" id="ewa" href="https://wa.me/260975943331">Open WhatsApp with this message</a><button class="btn" id="ecopy">Copy message</button></div>
-    <p class="small">WhatsApp: 0975 943 331 or 0777 164 682. If the link does not open, copy the message and paste it into a chat with either number.</p>
+    <div class="row"><a class="btn pri" id="ewa" href="https://wa.me/260975943331">Open WhatsApp with this message</a><button class="btn" id="ecopy">Copy message</button><button class="btn" id="eclear">Clear list</button></div>
+    <p class="small">WhatsApp: 0975 943 331 or 0777 164 682. If the link does not open, copy the message and paste it into a chat with either number. Your list is saved only on this device. See our <a href="privacy.html">Privacy Policy</a>.</p>
   </div>
 </dialog>
 
+<!-- If you change this script, update its sha256 in the Content-Security-Policy at the top, or the page will stop working. -->
 <script>
 /* ---------- data ---------- */
 const CATS={
@@ -461,6 +464,7 @@ function enq(){
 $('trayb').addEventListener('click',()=>{enq();$('enq').showModal();});
 $('elist').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;toggle(b.dataset.rm);enq();render();});
 $('enq-name').addEventListener('input',enq);
+$('eclear').addEventListener('click',()=>{st.list=[];try{localStorage.removeItem('mp-enquiry')}catch(e){}$('enq-name').value='';enq();render();});
 $('ecopy').addEventListener('click',async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText(message());b.textContent='Copied';}catch(err){b.textContent='Select the text above and copy it';}setTimeout(()=>b.textContent='Copy message',2200);});
 
 render();
